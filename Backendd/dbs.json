@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {  "id":1, "name":"GOVT_LEVELS", "price":100},
+    { "id":2,  "name":"OTHER FEE", "price":100},
+    { "id":3,  "name":"COMMISSION", "price":100},
+    {  "id":4, "name":" RETURN_COMMISSION", "price":100},
+    {  "id":5, "name":"TRANSPORTATION", "price":100},
+    {  "id":6, "name":"LABOUR_CHARGES", "price":100},
+    { "id":7,  "name":"RENT", "price":100},
+    { "id":8,  "name":"MANDI_FEE", "price":100}
+    
+  ]
+}
+
