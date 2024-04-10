@@ -108,7 +108,7 @@ const A = () => {
                   <th>S.no.</th>
                   <th>Items</th>
                   <th>Quantity</th>
-                  <th>Unit</th>
+                  {/* <th>Unit</th> */}
                   <th>Rate per kg</th>
                   <th>Total</th>
                 </tr>
@@ -116,7 +116,7 @@ const A = () => {
               <tbody>
                 {rows.map((row, index) => (
                   <tr key={row.id}>
-                    <td>{row.id}</td>
+                    <td className={style.sno}>{row.id}</td>
                     <td>
                       <input
                         type="text"
@@ -127,7 +127,7 @@ const A = () => {
                         onKeyDown={(e) => handleKeyDown(e, index)}
                       />
                     </td>
-                    <td>
+                    <td className={style.qty}>
                       <input
                         type="number"
                         value={row.quantity}
@@ -135,13 +135,13 @@ const A = () => {
                           handleInputChange(
                             index,
                             "quantity",
-                            parseInt(e.target.value)
+                            parseFloat(e.target.value)
                           )
                         }
                         onKeyDown={(e) => handleKeyDown(e, index)}
                       />
                     </td>
-                    <td>
+                    {/* <td>
                       <select
                         value={row.unit}
                         onChange={(e) =>
@@ -151,8 +151,8 @@ const A = () => {
                         <option value="kg">kg</option>
                         <option value="g">g</option>
                       </select>
-                    </td>
-                    <td>
+                    </td> */}
+                    <td className={style.qty}>
                       <input
                         type="number"
                         value={row.rate}
@@ -166,18 +166,19 @@ const A = () => {
                         onKeyDown={(e) => handleKeyDown(e, index)}
                       />
                     </td>
-                    <td>{calculateTotal(row)}</td>
+                    <td className={style.total}>
+                      {calculateTotal(row).toFixed(2)}
+                    </td>
                   </tr>
                 ))}
               </tbody>
-              <tfoot>
-                <tr>
-                  <td colSpan="5" align="right">
-                    Grand Total:
-                  </td>
-                  <td>{grandTotal}</td>
-                </tr>
-              </tfoot>
+              <tr>
+                <td colSpan="4" align="right">
+                  Grand Total:
+                </td>
+                <td className={style.total}>{grandTotal.toFixed(2)}</td>
+              </tr>
+              <tfoot></tfoot>
             </table>
             <Text
               className={style.bottom}
